@@ -1,0 +1,43 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Random Patient ID Generator</title>
+
+</head>
+
+<body onload="newID()">
+    <script>
+        var characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        var ID_LENGTH = 8; 
+
+        function newID() {
+            var id = "UN-"
+
+            var i;
+            for (i = 0; i < ID_LENGTH; i++) { 
+                id = id + characters[Math.floor(Math.random() * characters.length)];
+                if (i == 3) {
+                    id = id + "-";
+                }
+            }
+
+          var span = document.getElementById("patientID");
+          span.textContent = id;
+        };
+  
+    </script>  
+
+    <p>
+        <span>Patient ID:</span>
+        <span id="patientID"></span>
+    </p>
+    <p>
+        <button onclick="newID()">New ID</button>
+    </p>
+    <img src="TCBlogo.png" alt="Bhutan - Happiness is a place">
+
+</body>
+</html>
