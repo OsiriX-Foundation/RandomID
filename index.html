@@ -26,24 +26,26 @@
 
     <body onload="newID()">
         <script>
-            var characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             var ID_LENGTH = 8; 
+
+            var cryptoObj = window.crypto || window.msCrypto; // for IE 11
+            var uint16Array = new Uint16Array(ID_LENGTH);
 
             function newID() {
                 var id = "U-";
-
+                cryptoObj.getRandomValues(uint16Array);
                 var i;
                 for (i = 0; i < ID_LENGTH; i++) { 
-                    id = id + characters[Math.floor(Math.random() * characters.length)];
-                    if (i == 3) {
-                        id = id + "-";
+                    id += charset[uint16Array[i] % charset.length];
+                    if (i === 3) {
+                        id += "-";
                     }
                 }
 
                 var patientID = document.getElementById("patientID");
                 patientID.textContent = id;
             };
-    
         </script>
         <img src="assets/JDWNRH_logo.png" alt="JDWNRH" height="200" class="logo">
         <div
