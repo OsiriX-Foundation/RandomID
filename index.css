@@ -1,0 +1,54 @@
+html, body {
+  font-size: 125%;
+  color: white;
+}
+
+html {
+  background: url(assets/JDWNRH.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+  .center {
+    width: 100%;
+  }
+}
+
+.quote-card {
+  text-align: center;
+  background: rgba( 255, 255, 255, 0.20 );
+  box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+  backdrop-filter: blur( 5.0px );
+  -webkit-backdrop-filter: blur( 5.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+button {
+  font-size: 75%;
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 20px;
+  border: 1px solid white;
+  color: #FFFFFF;
+  background-color: #4eb5f1;
+  text-align: center;
+  width: 150px;
+}
+
+button:hover{
+  color: #FBFBFB;
+  background-color: #4095c6;
+}

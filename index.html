@@ -1,43 +1,54 @@
 <!doctype html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="index.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+        <link rel="manifest" href="assets/site.webmanifest">
+        <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <title>Random Patient ID Generator</title>
+    </head>
 
-  <title>Random Patient ID Generator</title>
+    <body onload="newID()">
+        <script>
+            var characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var ID_LENGTH = 8; 
 
-</head>
+            function newID() {
+                var id = "U-";
 
-<body onload="newID()">
-    <script>
-        var characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        var ID_LENGTH = 8; 
-
-        function newID() {
-            var id = "U-";
-
-            var i;
-            for (i = 0; i < ID_LENGTH; i++) { 
-                id = id + characters[Math.floor(Math.random() * characters.length)];
-                if (i == 3) {
-                    id = id + "-";
+                var i;
+                for (i = 0; i < ID_LENGTH; i++) { 
+                    id = id + characters[Math.floor(Math.random() * characters.length)];
+                    if (i == 3) {
+                        id = id + "-";
+                    }
                 }
-            }
 
-          var span = document.getElementById("patientID");
-          span.textContent = id;
-        };
-  
-    </script>  
-
-    <p>
-        <span>Patient ID:</span>
-        <span id="patientID"></span>
-    </p>
-    <p>
-        <button onclick="newID()">New ID</button>
-    </p>
-    <img src="TCBlogo.png" alt="Bhutan - Happiness is a place">
-
-</body>
+                var patientID = document.getElementById("patientID");
+                patientID.textContent = id;
+            };
+    
+        </script>  
+        <div
+            class="center"
+        >
+            <div
+                class="quote-card"
+            >
+                <p>
+                    <span>Patient ID:</span>
+                    <h2 id="patientID"></h2>
+                </p>
+                <p>
+                    <button onclick="newID()">New ID</button>
+                </p>
+            </div>
+        </div>
+    </body>
 </html>
