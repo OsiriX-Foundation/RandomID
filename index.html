@@ -52,13 +52,13 @@
             https://stackoverflow.com/questions/50795042/create-a-copy-button-without-an-input-text-box/50795833
             */
             function copy() {
-                var range_ = document.createRange(); // create new Range object
-                var elementPatientID = document.getElementById("patientID");
-                range_.selectNode(elementPatientID); // set our Range to contain the Node we want to copy from
-                window.getSelection().removeAllRanges(); // remove any previous selections
-                window.getSelection().addRange(range_); // select
-                document.execCommand("copy"); // copy to clipboard
-                window.getSelection().removeAllRanges(); // remove selection
+                var patientID = document.getElementById("patientID").textContent;
+                var tmpInput = document.createElement("input");
+                tmpInput.value = patientID;
+                document.body.appendChild(tmpInput);
+                tmpInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tmpInput);
 
                 var tooltip = document.getElementById("myTooltip");
                 tooltip.innerHTML = "Copied !";
