@@ -46,6 +46,28 @@
                 var patientID = document.getElementById("patientID");
                 patientID.textContent = id;
             };
+
+            /*
+            Copy without an input
+            https://stackoverflow.com/questions/50795042/create-a-copy-button-without-an-input-text-box/50795833
+            */
+            function copy() {
+                var range_ = document.createRange(); // create new Range object
+                var elementPatientID = document.getElementById("patientID");
+                range_.selectNode(elementPatientID); // set our Range to contain the Node we want to copy from
+                window.getSelection().removeAllRanges(); // remove any previous selections
+                window.getSelection().addRange(range_); // select
+                document.execCommand("copy"); // copy to clipboard
+                window.getSelection().removeAllRanges(); // remove selection
+
+                var tooltip = document.getElementById("myTooltip");
+                tooltip.innerHTML = "Copied !";
+            }
+
+            function outFunc() {
+                var tooltip = document.getElementById("myTooltip");
+                tooltip.innerHTML = "Copy to clipboard";
+            }
         </script>
         <img src="assets/JDWNRH_logo.png" alt="JDWNRH" height="200" class="logo">
         <div
@@ -54,13 +76,23 @@
             <div
                 class="quote-card"
             >
-                <p>
+                <div
+                    class="card-content"
+                >
                     <span>Patient ID:</span>
                     <h2 id="patientID"></h2>
-                </p>
-                <p>
+                </div>
+                <div
+                    class="card-content"
+                >
                     <button onclick="newID()">New ID</button>
-                </p>
+                </div>
+                <div
+                    class="tooltip"
+                >
+                    <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+                    <button onclick="copy()" onmouseout="outFunc()">Copy ID</button>
+                </div>
             </div>
         </div>
     </body>

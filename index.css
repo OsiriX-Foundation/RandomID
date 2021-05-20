@@ -14,15 +14,15 @@ html {
 
 .center {
   position: absolute;
-  left: 50%;
-  top: 35%;
+  left: 50vw;
+  top: 45vh;
   transform: translate(-50%, -50%);
-  width: 50%;
+  width: 50vw;
 }
 
 @media screen and (max-width: 600px) {
   .center {
-    width: 100%;
+    width: 100vw;
   }
 }
 
@@ -33,6 +33,7 @@ div.logo {
 }
 
 .quote-card {
+  padding: 1em 0 1em 0;
   text-align: center;
   background: rgba( 255, 255, 255, 0.20 );
   box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
@@ -46,8 +47,7 @@ button {
   font-size: 75%;
   display: inline-block;
   padding: 0.3em 1.2em;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 20px;
+  border-radius: 10px;
   border: 1px solid white;
   color: #FFFFFF;
   background-color: #4eb5f1;
@@ -58,4 +58,46 @@ button {
 button:hover{
   color: #FBFBFB;
   background-color: #4095c6;
+}
+
+.card-content {
+  padding-bottom: 1em;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 75%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
